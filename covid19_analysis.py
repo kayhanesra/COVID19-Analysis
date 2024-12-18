@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+#I had the issue with version, check it for next reference //
 import seaborn as sns
 from matplotlib import rcParams
 
@@ -32,8 +33,8 @@ country_summary = data.groupby('Country/Region')['Confirmed'].max().sort_values(
 # Convert to DataFrame for plotting
 country_summary_df = country_summary.reset_index()
 country_summary_df.columns = ['Country/Region', 'Confirmed']
-
-# Plot: Top 10 countries by confirmed cases
+# Plots will show how the charts will be shown
+# First Plot: Top 10 countries by confirmed cases// US to Iran//
 plt.figure(figsize=(10, 6))
 sns.barplot(
     x=country_summary_df['Confirmed'],
@@ -53,7 +54,7 @@ death_summary = data.groupby('Country/Region')['Deaths'].max().sort_values(ascen
 death_summary_df = death_summary.reset_index()
 death_summary_df.columns = ['Country/Region', 'Deaths']
 
-# Plot: Top 10 countries by deaths
+# Second Plot: Top 10 countries by deaths// will shown as brick color
 plt.figure(figsize=(10, 6))
 sns.barplot(
     x=death_summary_df['Deaths'],
@@ -73,7 +74,7 @@ recovery_summary = data.groupby('Country/Region')['Recovered'].max().sort_values
 recovery_summary_df = recovery_summary.reset_index()
 recovery_summary_df.columns = ['Country/Region', 'Recovered']
 
-# Plot: Top 10 countries by recoveries
+# Third Plot: Top 10 countries by recoveries//will shown green
 plt.figure(figsize=(10, 6))
 sns.barplot(
     x=recovery_summary_df['Recovered'],
